@@ -2,7 +2,7 @@
 
 ------
 
-这是在数据极度不均衡的场景下的一个二分类实现，使用了**weighted class**，**oversampling**，**focal loss** 等多种方式进行了实验，主要是进行了方法的验证和各种方法结果的对比；对比是主要参看了指标**混淆矩阵** 和 **auc**，最后本实验中还着重对focal loss进行了简单的调参：
+这是在数据极度不均衡的场景下的一个二分类实现，使用了**weighted class**，**oversampling**，***focal loss*** 等多种方式进行了实验，主要是进行了方法的验证和各种方法结果的对比；对比是主要参看了指标**混淆矩阵** 和 **auc**，最后本实验中还着重对focal loss进行了简单的调参：
 
 ------
 
@@ -35,7 +35,7 @@
 
 ### 4. focal loss调参说明
 
-调参使用的是tune_params_for_focal_loss.py，测试了一组$\alpha$ 和 $\gamma$，原论文的最佳组合是$\alpha=0.25$ 和 $\gamma=2.$，我在实验中的best params是$\alpha=0.3$ 和 $\gamma=2.$
+调参使用的是tune_params_for_focal_loss.py，测试了一组$\alpha$ 和 $\gamma$，原论文的最佳组合是$\alpha=0.25$ 和 $\gamma=2.$，我在实验中的best params是$\alpha=0.3$ 和 $\gamma=2.$。原论文地址：https://arxiv.org/abs/1708.02002
 ```python
 alphas = np.arange(0.1, 0.41, 0.05)#[0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4]
 gammas = np.arange(1., 4.1, 0.5)#[1.0, 1.5, 2., 2.5, 3., 3.5, 4.]
