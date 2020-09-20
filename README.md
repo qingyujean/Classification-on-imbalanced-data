@@ -21,15 +21,15 @@
 
 ### 3. 实验结果说明
 
-![增加先验bias后结果对比图](https://github.com/qingyujean/Classification-on-imbalanced-data/tree/master/Classification/src/imbalanced/imgs/bias_helped.png)
+![增加先验bias后结果对比图](./Classification/src/imbalanced/imgs/bias_helped.png)
 
 上图可以看出，bias有助于改善模型训练，模型的初期几个epoch不用再学习bias的变化。
 
 接下来就以加了先验bias的模型作为**baseline**，分别验证其他各种解决样本不均衡的方法
 
-![各种方法的训练结果对比图](https://github.com/qingyujean/Classification-on-imbalanced-data/tree/master/Classification/src/imbalanced/imgs/training_roc_comparison.png)
+![各种方法的训练结果对比图](./Classification/src/imbalanced/imgs/training_roc_comparison.png)
 
-![各种方法的测试结果对比图](https://github.com/qingyujean/Classification-on-imbalanced-data/tree/master/Classification/src/imbalanced/imgs/testing_roc_comparison.png)
+![各种方法的测试结果对比图](./Classification/src/imbalanced/imgs/testing_roc_comparison.png)
 
 上图可以看出，各路方法都在baseline的基础上有所提升。
 
@@ -40,5 +40,5 @@
 alphas = np.arange(0.1, 0.41, 0.05)#[0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4]
 gammas = np.arange(1., 4.1, 0.5)#[1.0, 1.5, 2., 2.5, 3., 3.5, 4.]
 ```
-![focal loss调参结果](https://github.com/qingyujean/Classification-on-imbalanced-data/tree/master/Classification/src/imbalanced/imgs/tune_params.jpg)
+![focal loss调参结果](./Classification/src/imbalanced/imgs/tune_params.jpg)
 可见$\alpha=0.3$ 和 $\gamma=2.$综合结果最好，因为我们更关注FN、FP以及AUC，例如这是一个信用卡欺诈的数据集，正例表示交易存在异常是一个欺诈行为，那么FN会导致这个交易通过，带来重大损失，而如果FP大，又会是的一个正常的交易被识别成一个欺诈交易，从而给客户发去验证和警告邮件，也会给客户带来不好的体验。对于这种数据极度不均衡的数据（正例只占0.17%）acc指标已经不可行，ROC曲线是不错的指标，外部ROC如果能包住内部ROC，则外部ROC对应的结果性能更高。
