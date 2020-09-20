@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//src/imbalanced/comparison.py=utf-8
+encoding//src/imbalanced/draw_helper.py=utf-8
+encoding//src/imbalanced/load_data_and_model.py=utf-8
+encoding//src/imbalanced/tune_params_for_focal_loss.py=utf-8
