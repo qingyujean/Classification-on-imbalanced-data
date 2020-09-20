@@ -42,3 +42,5 @@ gammas = np.arange(1., 4.1, 0.5)#[1.0, 1.5, 2., 2.5, 3., 3.5, 4.]
 ```
 ![focal loss调参结果](./Classification/src/imbalanced/imgs/tune_params.jpg)
 可见$\alpha=0.3$ 和 $\gamma=2.$综合结果最好，因为我们更关注FN、FP以及AUC，例如这是一个信用卡欺诈的数据集，正例表示交易存在异常是一个欺诈行为，那么FN会导致这个交易通过，带来重大损失，而如果FP大，又会是的一个正常的交易被识别成一个欺诈交易，从而给客户发去验证和警告邮件，也会给客户带来不好的体验。对于这种数据极度不均衡的数据（正例只占0.17%）acc指标已经不可行，ROC曲线是不错的指标，外部ROC如果能包住内部ROC，则外部ROC对应的结果性能更高。
+
+关于Focal Loss想要了解更多的，可参考我的博客：Focal Loss原理以及代码实现和验证（tensorflow2）：https://blog.csdn.net/u010366748/article/details/108697771
