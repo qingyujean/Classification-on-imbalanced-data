@@ -7,7 +7,7 @@
 ------
 
 ### 1. 代码结构说明
-> 1. load_data_and_model.py主要用于加载数据，对数据进行基本的预处理（数据的归一化，部分数据取log，丢弃无用数据等，可以看作是简单的特征工程）；然后定义了评价指标并定义了创建模型的方法，对训练的一些超参如epochs和batchsize也是在此文件定义。模型代码使用tf2的keras.Sequential创建了一个简单的模型，仅用来验证几种不同的处理不均衡的方法。模型代码和绘图代码参考于tensorflow2 tutorial的官网实现：https://tensorflow.google.cn/tutorials/structured_data/imbalanced_data，我增加了focal loss的实现，并一起进行对比。
+> 1. load_data_and_model.py主要用于加载数据，对数据进行基本的预处理（数据的归一化，部分数据取log，丢弃无用数据等，可以看作是简单的特征工程）；然后定义了评价指标并定义了创建模型的方法，对训练的一些超参如epochs和batchsize也是在此文件定义。模型代码使用tf2的keras.Sequential创建了一个简单的模型，仅用来验证几种不同的处理不均衡的方法。模型代码和绘图代码参考于tensorflow2 tutorial的官网实现：[https://tensorflow.google.cn/tutorials/structured_data/imbalanced_data](https://tensorflow.google.cn/tutorials/structured_data/imbalanced_data) ，我增加了focal loss的实现，并一起进行对比。
 > 2. draw_helper.py是一些绘图的辅助函数；
 > 3. comparison.py里使用添加经验bias的方法、类别加权、上采样、使用focal loss的方法分别训练模型，并得出评价，以及对比结果；
 > 4. tune_params_for_focal_loss.py主要是对focal loss的 $\alpha$ 和 $\gamma$ 进行调参，主要就是选定了一个范围，两重循环，类似于网格搜索
